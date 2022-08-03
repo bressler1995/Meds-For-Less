@@ -973,7 +973,7 @@ function eccent_submenu_func($atts) {
                 if($term_count != 0) {
                     
                     $args = array(
-                        'posts_per_page' => 3, 
+                        'posts_per_page' => 7, 
                         'post_type' => 'product',
                         'tax_query' => array(
                             array(

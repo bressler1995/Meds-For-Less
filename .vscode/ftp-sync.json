@@ -1,0 +1,27 @@
+{
+    "remotePath": "./wp-content/themes/medsforless",
+    "host": "77.72.1.15",
+    "username": "developer@medsforless.co.uk",
+    "password": "BhMoP1940!",
+    "port": 21,
+    "secure": false,
+    "protocol": "ftp",
+    "uploadOnSave": false,
+    "passive": false,
+    "debug": false,
+    "privateKeyPath": null,
+    "passphrase": null,
+    "agent": null,
+    "allow": [],
+    "ignore": [
+        "\\.vscode",
+        "\\.git",
+        "\\.DS_Store"
+    ],
+    "generatedFiles": {
+        "extensionsToInclude": [
+            ""
+        ],
+        "path": ""
+    }
+}
