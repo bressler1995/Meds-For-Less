@@ -1,0 +1,351 @@
+/*
+Theme Name: Hello Elementor Child
+Theme URI: https://elementor.com/hello-theme/?utm_source=wp-themes&utm_campaign=theme-uri&utm_medium=wp-dash
+Template: hello-elementor
+Author: Elementor Team
+Author URI: https://elementor.com/?utm_source=wp-themes&utm_campaign=author-uri&utm_medium=wp-dash
+Description: A plain-vanilla &amp; lightweight theme for Elementor page builder
+Tags: flexible-header,custom-colors,custom-menu,custom-logo,featured-images,rtl-language-support,threaded-comments,translation-ready
+Version: 2.5.0.1644511234
+Updated: 2022-02-10 16:40:34
+
+*/
+
+.hidecheckoutstep {
+   display: none !important;   
+}
+
+.medsforless_popup_progress {
+    display: flex;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.medsforless_popup_progress .medsforless_popup_progress_item {
+    display: flex;
+    flex-flow: column wrap;
+    box-sizing: border-box;
+    padding: 20px;
+    height: auto;
+}
+
+.medsforless_popup_progress .medsforless_popup_progress_item .medsforless_popup_progress_icon {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.medsforless_popup_progress .medsforless_popup_progress_item .medsforless_popup_progress_text {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    color: #222;
+    font-family: "Open Sans", Sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.medsforless_popup_progress .medsforless_popup_progress_item .medsforless_popup_progress_icon .the_bubble {
+    display: block;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    line-height: 55px;
+    text-align: center;
+}
+
+.medsforless_popup_progress .medsforless_popup_progress_item:not(.active) .medsforless_popup_progress_icon .the_bubble {
+    background-color: #FFF;
+    border: 1px solid #d0ddff;
+    color: #222;
+}
+
+.medsforless_popup_progress .medsforless_popup_progress_item.active .medsforless_popup_progress_icon .the_bubble {
+    background-color: #0f52ff;
+    border: 1px solid #d0ddff;
+    color: #FFF;
+}
+
+.noforms_checkout_opt {
+  display: inline-block;
+  font-family: "Open Sans", Sans-serif;
+  font-size: 15px;
+  line-height: 1;
+  border-radius: 50px 50px 50px 50px;
+  padding: 20px 24px 20px 24px;
+  color: #FFFFFF;
+  background-color: #0f52ff;
+  color: #FFF !important;
+  font-weight: 500;
+}
+
+.noforms_checkout_wrapper {
+ display: block;
+ width: 100%;
+ padding:0;
+ margin:0;
+ text-align: left;
+ margin-bottom: 20px;
+}
+
+.yesforms_checkout_wrapper {
+  margin-top: -20px;   
+}
+
+.gform_confirmation_message {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border-radius: 5px;
+  background-color: #ffc107;
+  color: #222222;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.medsforless_catTitle {
+    font-size: 18px !important;
+    line-height: 22px !important;
+    margin-top: 0 !important;
+    margin-bottom: 12px !important;
+}
+
+.medsforless_catDesc {
+    display: none !important;
+}
+
+.medsforless_menu_productlinks li a:not(.medsforless_menu_viewmore) {
+    color: #666;
+}
+
+.medsforless_menu_productlinks li a.medsforless_menu_viewmore {
+    color: #0f52ff;
+    text-decoration: underline;
+}
+
+.medsforless_menu_productlinks li a:not(.medsforless_menu_viewmore):hover, .medsforless_menu_productlinks li a:not(.medsforless_menu_viewmore):active, .medsforless_menu_productlinks li a:not(.medsforless_menu_viewmore):focus {
+     text-decoration: underline;   
+     color: #0f52ff;
+}
+
+.medsforless_menu_productlinks li a.medsforless_menu_viewmore:hover, .medsforless_menu_productlinks li a.medsforless_menu_viewmore:active, .medsforless_menu_productlinks li a.medsforless_menu_viewmore:focus {
+    opacity: 0.7;
+}
+
+.medsforless_disablePopupSubmit, .medsforless_disablegfield {
+   cursor: pointer;
+   pointer-events: none;
+   opacity: 0.5;
+}
+
+.medsforless_ageWarning {
+ display: none;
+ width: 100%;
+ font-size: 16px;
+ font-weight: 400;
+ line-height: 20px;
+ font-style: italic;
+ color: #777a83;
+ margin-top: 30px;
+}
+
+.medsforless_ageWarning.showAgeWarning {
+    display: block !important;
+}
+
+.gform_body h2, .gform_body h3, .gform_body h4, .gform_body h5, .gform_body h6 {
+    display: block;
+    width: 100%;
+    color: #222;
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.gform_body h2 {
+  font-size: 28px !important;
+  line-height: 32px !important;
+}
+
+.gform_body h3 {
+  font-size: 24px !important;
+  line-height: 28px !important;
+}
+
+.gform_body h4 {
+  font-size: 20px !important;
+  line-height: 24px !important;
+}
+
+.gform_body h5, .gform_body h6 {
+  font-size: 16px !important;
+  line-height: 20px !important;
+}
+
+.eccent_megaSubMenu {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.eccent_megaSubMenu .eccent_megaSubMenu_item {
+    display: flex;
+    flex-flow: column wrap;
+    box-sizing: border-box;
+}
+
+.eccent_megaSubMenu .eccent_megaSubMenu_item h5 {
+  display: block !important;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 12px !important;
+  font-family: "Open Sans", Sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: bold;
+  color: #222;
+}
+
+.eccent_megaSubMenu .eccent_megaSubMenu_item ul {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    flex-flow: row wrap;
+}
+.eccent_megaSubMenu .eccent_megaSubMenu_item ul li {
+  display: inline-block;
+  margin: 0;
+  font-size: 15px;
+  line-height: 19px;
+  width: auto;
+  padding: 0;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  box-sizing: border-box;
+}
+
+.eccent_megaSubMenu .eccent_megaSubMenu_item ul li a:not(.the_viewmore_button) {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: #666;
+}
+
+.eccent_megaSubMenu .eccent_megaSubMenu_item ul li a:not(.the_viewmore_button):hover, .eccent_megaSubMenu .eccent_megaSubMenu_item ul li a:not(.the_viewmore_button):active, .eccent_megaSubMenu .eccent_megaSubMenu_item ul li a:not(.the_viewmore_button):focus {
+    color: #0f52ff !important;
+    text-decoration: underline !important;
+}
+
+.eccent_megaSubMenu .eccent_megaSubMenu_item ul li a.the_viewmore_button {
+    display: block;
+    width: 100%;
+    color: #0f52ff;
+    text-decoration: underline;
+}
+
+.eccent_megaSubMenu .eccent_megaSubMenu_item ul li a.the_viewmore_button:hover, .eccent_megaSubMenu .eccent_megaSubMenu_item ul li a.the_viewmore_button:active, .eccent_megaSubMenu .eccent_megaSubMenu_item ul li a.the_viewmore_button:focus {
+  opacity: 0.65;   
+}
+
+.eccent_megaSubMenu_viewall {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.eccent_megaSubMenu_viewall a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #0f52ff;
+    color: #FFF !important;
+    box-sizing: border-box;
+    border-radius: 50px 50px 50px 50px;
+    padding: 20px 24px 20px 24px;
+    font-size: 15px;
+    line-height: 17px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.eccent_megaSubMenu_viewall a:hover, .eccent_megaSubMenu_viewall a:active, .eccent_megaSubMenu_viewall a:focus {
+    background-color: #0942d3;
+}
+
+@media(max-width: 767.9px) {
+    .medsforless_submenu ul.sub-menu-open {
+        padding-top: 25px !important;
+        padding-bottom: 25px !important;
+        background-color:#FFF;
+    }
+
+    .medsforless_popup_progress .medsforless_popup_progress_item {
+        width: 100%;
+    }
+    
+    .eccent_megaSubMenu .eccent_megaSubMenu_item {
+        width: 100%;
+        padding: 0;
+        padding-bottom: 17px;
+    }
+    
+    .eccent_megaSubMenu {
+      padding: 15px;   
+    }
+    
+}
+
+@media(max-width: 1024.9px) {
+    .medsforless_categoryWrap {
+      padding:0 !important;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+      padding-bottom: 25px !important;
+    }
+    
+}
+
+@media(min-width: 768px) {
+    .medsforless_popup_progress .medsforless_popup_progress_item {
+        width: 33.3%;
+    }
+}
+
+@media(min-width: 768px) and (max-width: 1024.9px) {
+    .medsforless_submenu ul.sub-menu-open {
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+    }
+    
+    .eccent_megaSubMenu .eccent_megaSubMenu_item {
+        width: 50%;
+        padding: 10px;
+    }
+}
+
+@media(min-width: 1025px) {
+    .eccent_megaSubMenu .eccent_megaSubMenu_item {
+        width: 33%;
+        padding: 10px;
+    }
+}
