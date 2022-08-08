@@ -82,7 +82,13 @@ echo "> Date Of Birth: " . esc_html( do_shortcode('[medsforless_showfield field=
 echo "\n";
 echo '> [ORDER #' . $order->get_id() . ']';
 echo "\n";
-echo '> DATE: (' . $payment_date->format ('Y-m-d') . ')';
+
+if(empty($payment_date) == false && isset($payment_date)) {
+    echo '> DATE: (' . $payment_date->format ('Y-m-d') . ')';
+} else {
+    echo '> DATE: No Transaction Date Available.  This could be a bank transfer.';
+}
+
 echo "\n" . ">" . "\n" . ">" . "\n";
 
 foreach ( $order_items as $item_id => $item ) {
