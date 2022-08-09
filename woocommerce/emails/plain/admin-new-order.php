@@ -86,7 +86,7 @@ echo "\n";
 if(empty($payment_date) == false && isset($payment_date)) {
     echo '> DATE: (' . $payment_date->format ('Y-m-d') . ')';
 } else {
-    echo '> DATE: No Transaction Date Available.  This could be a bank transfer.';
+    echo '> DATE: Payment Completion Date Unvailable.  This could be a bank transfer.';
 }
 
 echo "\n" . ">" . "\n" . ">" . "\n";
