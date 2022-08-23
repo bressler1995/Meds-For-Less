@@ -99,7 +99,7 @@ function ct_treatments_func($atts) {
             $content .= '<div class="ct-treatment-list">';
                 $content .= '<div class="ct-treatment-image">'.$thumb.'</div>';
                 
-                $content .= '<a class="ct-treatment-titleLink" href="' . get_the_permalink() . '"><h4>'.get_the_title().'</h4></a>';
+                $content .= '<a class="ct-treatment-titleLink" href="' . get_the_permalink() . '">' . get_the_title() . '</a>';
                 $content .= '<h6 class="ct-tr-price">from '.wc_price( $price ).'</h6>';
                 // $content .= '<p>'.wp_trim_words(get_the_excerpt(), 30 ).'</p>';
                 // $content .= '<a href="' . get_the_permalink() .'" class="ct-btn-accent elementor-button-link elementor-button elementor-size-sm" role="button">
