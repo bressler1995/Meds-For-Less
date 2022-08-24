@@ -169,7 +169,7 @@ function ct_conditions_func($atts) {
                 $content .= '<div class="ct-cl ct-min-desktop-display-flex">
                         <div class="ct-cl-content ct-min-desktop-display-flex">
                             <div>
-                                <h4>'.$term->name.'</h4>
+                                <a class="ct-conditions-titleLink" href="' . get_term_link( $term ) . '">'.$term->name.'</a>
                                 <p>'.$term->description.'</p>
                             </div>
                         </div>
