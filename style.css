@@ -292,6 +292,64 @@ Updated: 2022-02-10 16:40:34
     background-color: #0942d3;
 }
 
+.eccent_plainFaq {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.eccent_plainFaq_title {
+    display: block;
+    width: 100%;
+    font-weight: 700;
+    margin-top: 25px !important;
+    margin-bottom: 7px !important;
+}
+
+.eccent_plainFaq_content {
+    display: block;
+    width: 100%;
+}
+
+.eccent_plainFaq_content p {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #777a83;
+}
+
+.eccent_plainFaq_content p a {
+    color: #0f52ff !important;
+    text-decoration: underline !important;
+}
+
+.eccent_plainFaq_content ul {
+  padding-left: 27px;
+}
+
+.eccent_plainFaq_content ul li {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #777a83;
+}
+
+.eccent_plainFaq_content ul li a {
+    color: #0f52ff !important;
+    text-decoration: underline !important;
+}
+
+.eccent_plainFaq_content p a:hover, .eccent_plainFaq_content p a:active, .eccent_plainFaq_content p a:focus {
+    opacity: 0.6;
+}
+
+.eccent_plainFaq_content ul li a:hover, .eccent_plainFaq_content ul li a:active, .eccent_plainFaq_content ul li a:focus {
+    opacity: 0.6;
+}
+
 @media(max-width: 767.9px) {
     .medsforless_submenu ul.sub-menu-open {
         padding-top: 25px !important;

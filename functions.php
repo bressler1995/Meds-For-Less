@@ -252,6 +252,42 @@ function ct_product_accordion_function() {
 
 }
 
+function ct_product_accordion_function_new() {
+
+    $content = '';
+    
+    if( have_rows('faq') ):
+
+        $content .= '<div class="eccent_plainFaq">';
+
+        while( have_rows('faq') ) : the_row();
+
+            $accordion_title = get_sub_field('title');
+            $accordion_content = get_sub_field('content');
+
+            if(empty($accordion_title) == false) {
+                if($accordion_title) {
+                    $content .= '<span class="eccent_plainFaq_title">' . $accordion_title . '</span>';
+                }
+            }
+
+            if(empty($accordion_content) == false) {
+                if($accordion_content) {
+                    $content .= '<div class="eccent_plainFaq_content">' . $accordion_content . '</div>';
+                }
+            }
+
+
+        endwhile;
+
+        $content .= '</div>';
+
+    endif;
+
+    echo $content;
+
+}
+
 add_filter( 'woocommerce_product_tabs', 'ct_update_woocommerce_description_tab' );
 
 function ct_update_woocommerce_description_tab( $tabs ) {
@@ -263,7 +299,7 @@ function ct_update_woocommerce_description_tab( $tabs ) {
         $tabs['attrib_desc_tab'] = array(
             'title'     => __( 'Description', 'woocommerce' ),
             'priority'  => 1,
-            'callback'  => 'ct_product_accordion_function'
+            'callback'  => 'ct_product_accordion_function_new'
         );
 
     }
