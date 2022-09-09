@@ -255,6 +255,7 @@ function ct_product_accordion_function() {
 function ct_product_accordion_function_new() {
 
     $content = '';
+    $content .= '<div class="ct-tab-desc">'.get_the_content().'</div><br>';
     
     if( have_rows('faq') ):
 
