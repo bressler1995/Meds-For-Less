@@ -1076,3 +1076,12 @@ function eccent_submenu_func($atts) {
     $result = '<div class="eccent_megaSubMenu">' . $inner_items . $parent_link_output . '</div>';
     return $result;
 }
+
+add_filter( 'woocommerce_thankyou_order_received_text', 'd4tw_custom_ty_msg' );
+
+    function d4tw_custom_ty_msg ( $thank_you_msg ) {
+
+        $thank_you_msg =  'Thank you. Your order has been received.  Please note: If you have not received an email confirmation / receipt for your order at your provided email address, check your spam folder.  If it is not there, please contact us and we will notify our IT team.';
+
+    return $thank_you_msg;
+}
