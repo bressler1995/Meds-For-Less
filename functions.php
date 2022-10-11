@@ -253,16 +253,16 @@ function ct_product_accordion_function() {
 }
 
 function ct_product_accordion_function_new() {
-
+    $getPost = get_the_content();
+    $postwithbreaks = wpautop( $getPost, true/false );
     $content = '';
-    $content .= '<div class="ct-tab-desc">'.get_the_content().'</div><br>';
+    $content .= '<div class="ct-tab-desc">' . $postwithbreaks . '</div><br>';
     
     if( have_rows('faq') ):
 
         $content .= '<div class="eccent_plainFaq">';
 
         while( have_rows('faq') ) : the_row();
-
             $accordion_title = get_sub_field('title');
             $accordion_content = get_sub_field('content');
 
