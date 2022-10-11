@@ -254,7 +254,7 @@ function ct_product_accordion_function() {
 
 function ct_product_accordion_function_new() {
     $getPost = get_the_content();
-    $postwithbreaks = wpautop( $getPost, true/false );
+    $postwithbreaks = wpautop( $getPost, true );
     $content = '';
     $content .= '<div class="ct-tab-desc">' . $postwithbreaks . '</div><br>';
     
