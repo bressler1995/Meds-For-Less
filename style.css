@@ -329,9 +329,27 @@ Updated: 2022-02-10 16:40:34
     width: 100%;
     margin-bottom: 12px;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 25px;
     font-weight: 400;
     color: #777a83;
+}
+
+.woocommerce-product-details__short-description, .woocommerce-product-details__short-description p {
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+    color: #777a83;
+}
+
+.single-product .product_meta .detail-content {
+  line-height: 1.7em;
+}
+
+.single-product .woocommerce-breadcrumb a {
+    padding: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
 }
 
 .eccent_plainFaq_content p a, .ct-tab-desc p a {
@@ -345,7 +363,7 @@ Updated: 2022-02-10 16:40:34
 
 .eccent_plainFaq_content ul li, .ct-tab-desc ul li {
     font-size: 16px;
-    line-height: 24px;
+    line-height: 1.7em;
     font-weight: 400;
     color: #777a83;
 }
