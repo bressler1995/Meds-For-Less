@@ -769,8 +769,17 @@ jQuery(document).ready(function($) {
 	                 let medsforless_ageWarning = document.getElementById("medsforless_ageWarning");
 	                 let user_tel = document.getElementById("number_box_1657308556");
 	        
-	                console.log("Reg Form: " + this.value);
 	                dateValue = this.value;
+					dateArray = dateValue.split("/");
+
+					if(dateArray != null) {
+						if(dateArray.length == 3) {
+							dateValue = dateArray[1] + '/' + dateArray[0] + '/' + dateArray[2];
+						}
+					}
+
+					console.log("Reg Form: " + dateValue);
+
 	                console.log(underAgeValidate(dateValue));
 	               // if(underAgeValidate(dateValue) == true) {
 	               //     ofAge = true;
@@ -860,8 +869,8 @@ jQuery(document).ready(function($) {
     	var myAge = ~~((Date.now(currentDate) - myBirthday) / (31557600000));
     
     	if(myAge < 18) {
-         	    return false;
-            }else{
+         	return false;
+        } else {
     	    return true;
     	}
 
