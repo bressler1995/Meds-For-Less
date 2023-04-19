@@ -389,6 +389,118 @@ Updated: 2022-02-10 16:40:34
     opacity: 0.6;
 }
 
+.medsforless_customsearch {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+.medsforless_customsearch form {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+}
+
+.medsforless_customsearch form label {
+    display: block;
+    width: 100%;
+}
+
+.medsforless_customsearch form input[type="search"]  {
+    display: block;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: 48px;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 48px;
+    font-family: "Open Sans", Sans-serif;
+    border: 1px solid #CBD0D7;
+    border-radius: 25px;
+    outline: none;
+}
+
+#rlvlive .relevanssi-live-search-results {
+  top:0 !important;
+  left:50% !important;
+  transform: translateX(-50%);
+  width: 100% !important;
+  max-width: 1280px !important;
+  max-height: initial !important;
+}
+
+#rlvlive .ajax-results {
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+#rlvlive .relevanssi-live-search-result-status {
+    display: none;
+    width: 100%;
+    height: 0;
+}
+
+#rlvlive .relevanssi-live-search-result .medsforless_ajaxresult_outterlink {
+    display: flex;
+    flex-flow: column wrap;
+    box-sizing: border-box;
+    border: 1px solid #CCC;
+    padding: 17px;
+    border-radius: 5px;
+}
+
+#rlvlive .relevanssi-live-search-result .medsforless_ajaxresult_image {
+    display: block;
+    position: relative;
+    background-color: #000;
+    overflow:hidden;
+    width: 100%;
+    height: 0;
+    padding-bottom: 80%;
+}
+
+#rlvlive .relevanssi-live-search-result .medsforless_ajaxresult_image img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#rlvlive .medsforless_ajaxresults_wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
+#rlvlive .medsforless_ajaxresults_results .relevanssi-live-search-result {
+    display: block;
+    width: calc(33.3% - 30px);
+    margin: 15px;
+}
+
+#rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_results {
+    display: flex;
+    flex-flow: row wrap;
+    width: 75%;
+    box-sizing: border-box;
+    padding: 25px;
+}
+
+#rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side {
+    display: block;
+    width: 25%;
+    background: #0F52FF;
+}
+
 @media(max-width: 767.9px) {
     .medsforless_submenu ul.sub-menu-open {
         padding-top: 25px !important;

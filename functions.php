@@ -929,12 +929,14 @@ function remove_cart_item_before_add_to_cart( $passed, $product_id, $quantity ) 
 add_filter( 'user_registration_account_menu_items', 'ur_custom_menu_items', 10, 1 );
 function ur_custom_menu_items( $items ) {
 	$items['orders-item'] = __( 'Orders', 'user-registration' );
+    $items['affiliates-item'] = __('Affiliates', 'registration' );
 	return $items;
 }
 
 add_action( 'init', 'user_orders_my_account' );
 function user_orders_my_account() {
 	add_rewrite_endpoint( 'orders-item', EP_PAGES );
+    add_rewrite_endpoint( 'affiliates-item', EP_PAGES );
 }
 
 function user_orders_my_account_content() {
@@ -975,6 +977,12 @@ function user_orders_my_account_content() {
 	
 }
 add_action( 'user_registration_account_orders-item_endpoint', 'user_orders_my_account_content' );
+
+function user_reg_affiliates_content() {
+  echo do_shortcode('[afwc_registration_form]');
+}
+
+add_action('user_registration_account_affiliates-item_endpoint', 'user_reg_affiliates_content');
 
 add_shortcode('eccent_submenu','eccent_submenu_func');
 
@@ -1077,6 +1085,21 @@ function eccent_submenu_func($atts) {
     return $result;
 }
 
+add_shortcode('medsforless_customsearch','medsforless_customsearch_function');
+
+function medsforless_customsearch_function() {
+    $result = '<div class="medsforless_customsearch"><form role="search" method="get" class="search-form" action="/">
+                <label>
+                    <span class="screen-reader-text">Search for:</span>
+                    <input type="search" class="search-field" placeholder="Search …" name="s"
+                    data-rlvlive="true" data-rlvparentel="#rlvlive" data-rlvconfig="default">
+                </label>
+                <input type="submit" class="search-submit" value="Search">
+            </form></div>';
+
+    return $result;
+}
+
 add_filter( 'woocommerce_thankyou_order_received_text', 'd4tw_custom_ty_msg' );
 
     function d4tw_custom_ty_msg ( $thank_you_msg ) {
@@ -1085,3 +1108,21 @@ add_filter( 'woocommerce_thankyou_order_received_text', 'd4tw_custom_ty_msg' );
 
     return $thank_you_msg;
 }
+
+add_action('user_register', 'medsforless_registeruser_func');
+
+function medsforless_registeruser_func($user_id) {
+  $uid_int = -1;
+  if(empty($user_id) == false) {
+    if(is_numeric($user_id) == true) {
+   	    $uid_int = intval($user_id);
+     	$userdata = get_userdata( $uid_int );
+    
+        if($userdata){
+          $update_user = update_user_meta($uid_int, 'ur_form_id', '2385');
+        }
+    }
+  }
+}
+
+add_filter( 'relevanssi_live_search_posts_per_page', function() { return 10; } );
