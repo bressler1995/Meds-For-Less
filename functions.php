@@ -1125,4 +1125,4 @@ function medsforless_registeruser_func($user_id) {
   }
 }
 
-add_filter( 'relevanssi_live_search_posts_per_page', function() { return 10; } );
+add_filter( 'relevanssi_live_search_posts_per_page', function() { return 3; } );

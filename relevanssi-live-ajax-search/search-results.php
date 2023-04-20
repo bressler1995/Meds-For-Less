@@ -26,6 +26,8 @@
 	<div class="medsforless_ajaxresults_results">
 	<?php if ( have_posts() ) : ?>
 		<?php
+		$posts_recorded = 0;
+		$posts_limit = 3;
 		$status_element = '<div class="relevanssi-live-search-result-status" role="status" aria-live="polite"><p>';
 		// Translators: %s is the number of results found.
 		$status_element .= sprintf( esc_html( _n( '%d result found.', '%d results found.', $wp_query->found_posts, 'relevanssi-live-ajax-search' ) ), intval( $wp_query->found_posts ) );
@@ -64,8 +66,16 @@
 			$the_id = get_the_ID();
 			$the_post_type = get_post_type();
 			$the_post_thumbnail_id = get_post_thumbnail_id( $the_id );
+			$the_terms = get_the_terms( $the_id, 'product_cat' );
+			$the_terms_output = 'No Categories';
+			$the_title = get_the_title($the_id);
+			$the_price = '';
 			$the_image_url = '';
 			$has_ajax_image = false;
+
+			if($the_terms != false) {
+				$the_terms_output = join(', ', wp_list_pluck($the_terms, 'name'));
+			}
 
 			if(!empty($the_post_thumbnail_id)) {
 				$the_image_url = wp_get_attachment_image_src( $the_post_thumbnail_id, 'full' );
@@ -74,18 +84,38 @@
 			
 
 			?>
-			<?php if ( $the_post_type == 'product' ) : ?>
+			<?php if ( $the_post_type == 'product' && $posts_recorded < $posts_limit) : 
+				$posts_recorded += 1;
+				$the_product = 	wc_get_product($the_id);
+				$the_currency_symbol = get_woocommerce_currency_symbol();
+
+				if($the_product->is_type('variable')) {
+					$the_price = $the_product->get_variation_price( 'min' );
+				} else {
+					$the_price = $the_product->get_price();
+				}
+			?>
 			<div class="relevanssi-live-search-result" role="option" id="" aria-selected="false">
 				<a class="medsforless_ajaxresult_outterlink" href="<?php echo esc_url( get_permalink() ); ?>">
-					<?php the_title(); 
+					<?php 
+						// echo d($the_price);
 						if($has_ajax_image == true) {
 							echo '<div class="medsforless_ajaxresult_image"><img src="' . $the_image_url[0] . '"></div>';
 						} else {
 							echo '<div class="medsforless_ajaxresult_image"><img src="https://www.medsforless.co.uk/wp-content/uploads/2023/04/AjaxPlaceholder-01.jpg"></div>';
 						}
-						echo $the_id;
-						echo $the_post_type;
+						// echo $the_id;
+						// echo $the_post_type;
 					?>
+					<span class="medsforless_ajaxresult_category"><?php echo $the_terms_output ?></span>
+					<span class="medsforless_ajaxresult_title"><?php echo $the_title ?></span>
+					<div class="medsforless_ajaxresult_price">
+						<div class="medsforless_ajaxresult_price_price">
+							<p>From</p>
+							<p><?php echo $the_currency_symbol . $the_price ?></p>
+						</div>
+						<div class="medsforless_ajaxresult_price_button"><span>View More</span></div>
+					</div>
 				</a>
 			</div>
 			<?php endif; ?>
@@ -115,7 +145,7 @@
 	</div>
 
 	<div class="medsforless_ajaxresults_side">
-
+			<?php echo $posts_recorded ?>
 	</div>
 
 </div>
