@@ -28,6 +28,9 @@ if ( !function_exists( 'child_theme_configurator_css' ) ):
             wp_enqueue_script('ct_product_archive_js');
         }
 
+        wp_register_script( 'custom_uijs', get_stylesheet_directory_uri() . '/js/uicontrol.js', array(), '1.0.0', 'true'  );
+        wp_enqueue_script('custom_uijs');
+
     }
 
 endif;
@@ -1092,7 +1095,7 @@ function medsforless_customsearch_function() {
                 <label>
                     <span class="screen-reader-text">Search for:</span>
                     <input type="search" class="search-field" placeholder="Search …" name="s"
-                    data-rlvlive="true" data-rlvparentel="#rlvlive" data-rlvconfig="default">
+                    data-rlvlive="true" data-rlvparentel="#rlvlive" data-rlvconfig="default" id="medsforless_ajaxsearch_input">
                 </label>
                 <input type="submit" class="search-submit" value="Search">
             </form></div>';
@@ -1125,4 +1128,10 @@ function medsforless_registeruser_func($user_id) {
   }
 }
 
-add_filter( 'relevanssi_live_search_posts_per_page', function() { return 3; } );
+add_filter( 'relevanssi_live_search_posts_per_page', function() { return 99999; } );
+add_filter( 'relevanssi_block_one_letter_searches', '__return_false' );
+
+add_filter( 'relevanssi_live_search_configs', function( $config ) {
+    $config['default']['input']['min_chars'] = 1;
+    return $config;
+} );

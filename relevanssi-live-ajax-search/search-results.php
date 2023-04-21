@@ -20,6 +20,7 @@
  * @package Relevanssi Live Ajax Search
  */
 
+	$nopost_error = '<p class="relevanssi-live-search-no-results" role="status"> No results found. </p>';
 ?>
 <div class="medsforless_ajaxresults_wrapper">
 
@@ -82,7 +83,7 @@
 				}
 
 				if(!empty($the_post_thumbnail_id)) {
-					$the_image_url = wp_get_attachment_image_src( $the_post_thumbnail_id, 'full' );
+					$the_image_url = wp_get_attachment_image_src( $the_post_thumbnail_id, 'medium' );
 					$the_image_output = '<div class="medsforless_ajaxresult_image"><img src="' . $the_image_url[0] . '"></div>';
 				} else {
 					$the_image_output = '<div class="medsforless_ajaxresult_image"><img src="https://www.medsforless.co.uk/wp-content/uploads/2023/04/AjaxPlaceholder-01.jpg"></div>';
@@ -100,7 +101,7 @@
 						$the_price = $the_product->get_price();
 					}
 
-					$the_product_output = '<div class="relevanssi-live-search-result" role="option" id="" aria-selected="false">
+					$the_product_output = '<div class="relevanssi-live-search-result" role="option" aria-selected="false">
 												<a class="medsforless_ajaxresult_outterlink" href="' . esc_url(get_permalink()) . '">' .
 													$the_image_output .
 													'<span class="medsforless_ajaxresult_category">' . $the_terms_output . '</span>
@@ -123,12 +124,21 @@
 				if(count($all_ajax_posts) > 0) {
 					$posts_pages_amt = ceil($posts_recorded / $posts_limit);
 
-					//initial item load
-					for($x = 0; $x < count($all_ajax_posts); $x++) {
-						if($x < $posts_limit) {
-							echo $all_ajax_posts[$x];
+					echo '<div id="medsforless_ajaxresults_resultsinner" class="medsforless_ajaxresults_resultsinner">';
+						//initial item load
+						for($x = 0; $x < count($all_ajax_posts); $x++) {
+							if($x < $posts_limit) {
+								echo $all_ajax_posts[$x];
+							}
 						}
-					}
+					echo '</div>';
+
+					echo '<div id="medsforless_ajaxresults_resultshidden" class="medsforless_ajaxresults_resultshidden">';
+						//initial item load
+						for($z = 0; $z < count($all_ajax_posts); $z++) {
+							echo $all_ajax_posts[$z];
+						}
+					echo '</div>';
 
 					echo '<div id="medsforless_ajaxpagination" class="medsforless_ajaxpagination">';
 					for($y = 0; $y < $posts_pages_amt; $y++) {
@@ -140,7 +150,11 @@
 					}
 					echo '</div>';
 
+				} else {
+					echo $nopost_error;
 				}
+			} else {
+				echo $nopost_error;
 			}
 
 			if ( 'after' === $status_location ) {
