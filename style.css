@@ -494,8 +494,6 @@ Updated: 2022-02-10 16:40:34
 
 #rlvlive .medsforless_ajaxresults_results .relevanssi-live-search-result {
     display: block;
-    width: calc(33.3% - 25px);
-    margin-right: 25px;
 }
 
 #rlvlive .relevanssi-live-search-result .medsforless_ajaxresult_category {
@@ -579,7 +577,6 @@ Updated: 2022-02-10 16:40:34
 #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_results {
     display: flex;
     flex-flow: column wrap;
-    width: 75%;
     box-sizing: border-box;
     padding: 0;
     min-height: 280px;
@@ -595,10 +592,58 @@ Updated: 2022-02-10 16:40:34
 }
 
 #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side {
-    display: block;
-    width: 25%;
     background: #0F52FF;
-    min-height: 280px;
+    box-sizing: border-box;
+}
+
+#rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side_cat, #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side_res {
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin-bottom: 35px;
+}
+
+#rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side_cat h3, #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side_res h3 {
+  display: block;
+  width: 100%;
+  color: #FFF;
+  font-family: "Open Sans", Sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+#rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side_cat a, #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side_res a {
+    display: block;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: "Open Sans", Sans-serif;
+    font-size: 15px;
+    line-height: 19px;
+    font-weight: 400;
+    text-decoration: none;
+    margin-bottom: 8px;
+}
+
+#rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side_cat p, #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side_res p {
+    display: block;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: "Open Sans", Sans-serif;
+    font-size: 15px;
+    line-height: 19px;
+    font-weight: 400;
+    margin: 0;
+}
+
+#rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side_cat a:hover, #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side_res a:hover,
+#rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side_cat a:active, #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side_res a:active,
+#rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side_cat a:focus, #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side_res a:focus {
+    color: #FFF;
 }
 
 #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_results .medsforless_ajaxresults_resultshidden {
@@ -621,15 +666,15 @@ Updated: 2022-02-10 16:40:34
     display: inline-block;
     font-family: "Open Sans", Sans-serif;
     font-size: 14px;
-    line-height: 25px;
+    line-height: 28px;
     border-radius: 50%;
     box-sizing: border-box;
     padding: 0;
     color: #1b2338;
-    width: 25px;
-    height: 25px;
+    width: 28px;
+    height: 28px;
     text-align: center;
-    margin-right: 5px;
+    margin-right: 7px;
 }
 
 #rlvlive .medsforless_ajaxpagination a:not(.mfl_ajaxcurrent):hover, #rlvlive .medsforless_ajaxpagination a:not(.mfl_ajaxcurrent):active, #rlvlive .medsforless_ajaxpagination a:not(.mfl_ajaxcurrent):focus {
@@ -671,7 +716,24 @@ Updated: 2022-02-10 16:40:34
       padding-right: 15px !important;
       padding-bottom: 25px !important;
     }
-    
+
+    #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_results {
+        width: 100%;
+    }
+
+    #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side {
+        display: none;
+        width: 100%;
+        min-height: 0;
+        padding: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+    #rlvlive .medsforless_ajaxresults_results .relevanssi-live-search-result {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
 
 @media(min-width: 768px) {
@@ -696,5 +758,22 @@ Updated: 2022-02-10 16:40:34
     .eccent_megaSubMenu .eccent_megaSubMenu_item {
         width: 33%;
         padding: 10px;
+    }
+
+    #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_results {
+        width: 75%;
+    }
+
+    #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side {
+        display: flex;
+        flex-flow: column wrap;
+        width: 25%;
+        min-height: 280px;
+        padding: 30px;
+    }
+
+    #rlvlive .medsforless_ajaxresults_results .relevanssi-live-search-result {
+        width: calc(33.3% - 25px);
+        margin-right: 25px;
     }
 }

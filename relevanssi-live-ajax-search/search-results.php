@@ -21,6 +21,9 @@
  */
 
 	$nopost_error = '<p class="relevanssi-live-search-no-results" role="status"> No results found. </p>';
+	$all_term_slugs = array();
+	$filtered_term_slugs = array();
+	$has_posts = false;
 ?>
 <div class="medsforless_ajaxresults_wrapper">
 
@@ -80,6 +83,10 @@
 
 				if($the_terms != false) {
 					$the_terms_output = join(', ', wp_list_pluck($the_terms, 'name'));
+
+					foreach($the_terms as $term) {
+						array_push($all_term_slugs, $term->slug);
+					}
 				}
 
 				if(!empty($the_post_thumbnail_id)) {
@@ -122,6 +129,8 @@
 
 			if(empty($all_ajax_posts) == false) {
 				if(count($all_ajax_posts) > 0) {
+					$has_posts = true;
+					$filtered_term_slugs = array_unique($all_term_slugs);
 					$posts_pages_amt = ceil($posts_recorded / $posts_limit);
 
 					echo '<div id="medsforless_ajaxresults_resultsinner" class="medsforless_ajaxresults_resultsinner">';
@@ -143,9 +152,9 @@
 					echo '<div id="medsforless_ajaxpagination" class="medsforless_ajaxpagination">';
 					for($y = 0; $y < $posts_pages_amt; $y++) {
 						if($y == 0) {
-							echo '<a class="mfl_ajaxcurrent" href="javascript:void(0)">' . ($y + 1) . '</a>';
+							echo '<a data-ajaxpage="' . $y . '" class="mfl_ajaxcurrent" href="javascript:void(0)">' . ($y + 1) . '</a>';
 						} else {
-							echo '<a href="javascript:void(0)">' . ($y + 1) . '</a>';
+							echo '<a data-ajaxpage="' . $y . '" href="javascript:void(0)">' . ($y + 1) . '</a>';
 						}
 					}
 					echo '</div>';
@@ -180,7 +189,56 @@
 	</div>
 
 	<div class="medsforless_ajaxresults_side">
-			<?php echo $posts_recorded ?>
+			<?php 
+				// echo $posts_recorded;
+				$ajax_categories_output = '<p>0 results</p>';
+				$ajax_resources_output = '<p>0 results</p>';
+
+				//load top 3 terms
+				if($has_posts == true) {
+					if(empty($filtered_term_slugs) == false) {
+						if(count($filtered_term_slugs) > 0) {
+							$ajax_categories_output = '';
+							for($w = 0; $w < count($filtered_term_slugs); $w++) {
+								if($w < 3) {
+									$current_filtered_termslug = $filtered_term_slugs[$w];
+									$current_filtered_term = get_term_by('slug', $current_filtered_termslug, 'product_cat');
+			
+									if($current_filtered_term != false) {
+										$current_filtered_termname = $current_filtered_term->name;
+										$current_filtered_termlink = get_term_link($current_filtered_termslug, 'product_cat');
+			
+										$ajax_categories_output .= '<a href="' . $current_filtered_termlink . '">' . $current_filtered_termname . '</a>';
+									}
+								}
+							}
+						}
+					}
+				}
+
+				$blog_args = array(
+					'post_type' => 'post',
+					'orderby' => 'date',
+    				'order'   => 'DESC',
+					'posts_per_page' => 3
+				);
+   				$blog_posts = new WP_Query($blog_args);
+
+				if($blog_posts->have_posts()) {
+					$ajax_resources_output = '';
+					while($blog_posts->have_posts()) {
+						$blog_posts->the_post();
+						$blog_title = get_the_title();
+						$blog_link = get_permalink();
+
+						$ajax_resources_output .= '<a href="' . $blog_link . '">' . $blog_title . '</a>';
+					}
+				}
+
+				// echo json_encode($filtered_term_slugs);
+				echo '<div class="medsforless_ajaxresults_side_cat"><h3>Categories</h3>' . $ajax_categories_output . '</div>';
+				echo '<div class="medsforless_ajaxresults_side_res"><h3>Resources</h3>' . $ajax_resources_output . '</div>';
+			?>
 	</div>
 
 </div>
