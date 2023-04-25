@@ -11,6 +11,12 @@ Updated: 2022-02-10 16:40:34
 
 */
 
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
 .hidecheckoutstep {
    display: none !important;   
 }
@@ -398,6 +404,7 @@ Updated: 2022-02-10 16:40:34
 .medsforless_customsearch form {
     display: flex;
     flex-flow: row wrap;
+    position: relative;
     width: 100%;
 }
 
@@ -410,24 +417,59 @@ Updated: 2022-02-10 16:40:34
     display: block;
     width: 100%;
     padding-left: 20px;
-    padding-right: 20px;
+    padding-right: 45px;
     padding-top: 0;
     padding-bottom: 0;
-    min-height: 48px;
+    height: 55px;
+    min-height: initial;
     font-size: 15px;
     font-weight: 400;
-    line-height: 48px;
+    line-height: 55px;
     font-family: "Open Sans", Sans-serif;
     border: 1px solid #CBD0D7;
-    border-radius: 25px;
+    border-radius: 30px;
     outline: none;
+    background-color: #f7fbff;
+}
+
+.medsforless_customsearch form input[type="search"]:active, .medsforless_customsearch form input[type="search"]:focus {
+    background-color: #FFF;
+}
+
+.medsforless_customsearch form input[type="submit"] {
+    display: inline-block;
+    position: absolute;
+    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
+    width: 55px;
+    height: 55px;
+    top: 0;
+    right: 0;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    font-size: 0px;
+    line-height: 55px;
+    text-align: center;
+    background-color: transparent;
+    background-size: 20px auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url('https://www.medsforless.co.uk/wp-content/uploads/2023/04/search-interface-symbol.svg');
+}
+
+.medsforless_customsearch form input[type="submit"]:hover, .medsforless_customsearch form input[type="submit"]:active, .medsforless_customsearch form input[type="submit"]:focus {
+    background-color: transparent;
+    opacity: 0.5;
+    border: none;
 }
 
 #rlvlive .relevanssi-live-search-results {
   top:0 !important;
   left:50% !important;
   transform: translateX(-50%);
-  width: 100% !important;
+  width: calc(100% - 45px) !important;
   max-width: 1280px !important;
   min-height: 280px !important;
   max-height: initial !important;
@@ -449,7 +491,7 @@ Updated: 2022-02-10 16:40:34
 
 #rlvlive .relevanssi-live-search-result .medsforless_ajaxresult_outterlink {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
     box-sizing: border-box;
     border: 1px solid #CCC;
     padding: 17px;
@@ -464,15 +506,22 @@ Updated: 2022-02-10 16:40:34
     box-shadow: 0px 0px 30px 5px rgba(27,35,56,0.12);
 }
 
+#rlvlive .relevanssi-live-search-result .medsforless_ajaxresult_contentunder {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
 #rlvlive .relevanssi-live-search-result .medsforless_ajaxresult_image {
     display: block;
     position: relative;
     background-color: #000;
     overflow:hidden;
-    width: 100%;
     height: 0;
-    padding-bottom: 80%;
-    margin-bottom: 12px;
+    box-sizing: border-box;
 }
 
 #rlvlive .relevanssi-live-search-result .medsforless_ajaxresult_image img {
@@ -587,13 +636,45 @@ Updated: 2022-02-10 16:40:34
     flex-flow: row wrap;
     width: 100%;
     box-sizing: border-box;
-    padding: 30px;
-    padding-right: 5px;
 }
 
 #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side {
     background: #0F52FF;
     box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+#rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side .medsforless_ajaxresults_side_viewall {
+  display: block;
+  width: 100%;
+  padding: 0;
+  color: #FFF;
+  height: 69.5px;
+  line-height: 69.5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-family: "Open Sans", Sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+#rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side .medsforless_ajaxresults_side_viewall img {
+    display: inline-block;
+    height: 12px;
+    width: auto;
+    margin-left: 8px;
+}
+
+#rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side .medsforless_ajaxresults_side_viewall:hover, #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side .medsforless_ajaxresults_side_viewall:active, #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side .medsforless_ajaxresults_side_viewall:focus {
+    background-color: #0942d3;
 }
 
 #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side_cat, #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side_res {
@@ -602,7 +683,11 @@ Updated: 2022-02-10 16:40:34
     width: 100%;
     box-sizing: border-box;
     padding: 0;
-    margin-bottom: 35px;
+    margin-bottom: 32px;
+}
+
+#rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side_res {
+    margin-bottom: 0 !important;
 }
 
 #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side_cat h3, #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_side_res h3 {
@@ -659,6 +744,8 @@ Updated: 2022-02-10 16:40:34
     width: 100%;
     box-sizing: border-box;
     padding: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     border-top: 1px solid #CCC;
 }
 
@@ -707,6 +794,15 @@ Updated: 2022-02-10 16:40:34
       padding: 15px;   
     }
     
+    #rlvlive .relevanssi-live-search-result .medsforless_ajaxresult_image {
+        width: calc(25% - 15px);
+        padding-bottom: 25%;
+        margin-right: 15px;
+    }
+
+    #rlvlive .relevanssi-live-search-result .medsforless_ajaxresult_contentunder {
+        width: 75%;
+    }
 }
 
 @media(max-width: 1024.9px) {
@@ -727,12 +823,17 @@ Updated: 2022-02-10 16:40:34
         min-height: 0;
         padding: 0;
         height: 0;
-        overflow: hidden;
     }
 
     #rlvlive .medsforless_ajaxresults_results .relevanssi-live-search-result {
         width: 100%;
         margin-bottom: 20px;
+    }
+
+    #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_results .medsforless_ajaxresults_resultsinner {
+        padding: 20px;
+        padding-top: 25px;
+        padding-bottom: 25px;
     }
 }
 
@@ -751,6 +852,16 @@ Updated: 2022-02-10 16:40:34
     .eccent_megaSubMenu .eccent_megaSubMenu_item {
         width: 50%;
         padding: 10px;
+    }
+
+    #rlvlive .relevanssi-live-search-result .medsforless_ajaxresult_image {
+        width: calc(25% - 15px);
+        padding-bottom: 20%;
+        margin-right: 15px;
+    }
+
+    #rlvlive .relevanssi-live-search-result .medsforless_ajaxresult_contentunder {
+        width: 75%;
     }
 }
 
@@ -775,5 +886,20 @@ Updated: 2022-02-10 16:40:34
     #rlvlive .medsforless_ajaxresults_results .relevanssi-live-search-result {
         width: calc(33.3% - 25px);
         margin-right: 25px;
+    }
+
+    #rlvlive .medsforless_ajaxresults_wrapper .medsforless_ajaxresults_results .medsforless_ajaxresults_resultsinner {
+        padding: 30px;
+        padding-right: 5px;
+    }
+
+    #rlvlive .relevanssi-live-search-result .medsforless_ajaxresult_image {
+        width: 100%;
+        padding-bottom: 80%;
+        margin-bottom: 12px;
+    }
+
+    #rlvlive .relevanssi-live-search-result .medsforless_ajaxresult_contentunder {
+        width: 100%;
     }
 }

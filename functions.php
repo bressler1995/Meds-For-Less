@@ -1094,7 +1094,7 @@ function medsforless_customsearch_function() {
     $result = '<div class="medsforless_customsearch"><form role="search" method="get" class="search-form" action="/">
                 <label>
                     <span class="screen-reader-text">Search for:</span>
-                    <input type="search" class="search-field" placeholder="Search …" name="s"
+                    <input type="search" class="search-field" placeholder="Search Treatments" name="s"
                     data-rlvlive="true" data-rlvparentel="#rlvlive" data-rlvconfig="default" id="medsforless_ajaxsearch_input">
                 </label>
                 <input type="submit" class="search-submit" value="Search">

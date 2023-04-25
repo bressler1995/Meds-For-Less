@@ -111,14 +111,16 @@
 					$the_product_output = '<div class="relevanssi-live-search-result" role="option" aria-selected="false">
 												<a class="medsforless_ajaxresult_outterlink" href="' . esc_url(get_permalink()) . '">' .
 													$the_image_output .
-													'<span class="medsforless_ajaxresult_category">' . $the_terms_output . '</span>
-													<span class="medsforless_ajaxresult_title">' . $the_title . '</span>
-													<div class="medsforless_ajaxresult_price">
-														<div class="medsforless_ajaxresult_price_price">
-															<p>From</p>
-															<p>' . $the_currency_symbol . $the_price . '</p>
+													'<div class="medsforless_ajaxresult_contentunder">
+														<span class="medsforless_ajaxresult_category">' . $the_terms_output . '</span>
+														<span class="medsforless_ajaxresult_title">' . $the_title . '</span>
+														<div class="medsforless_ajaxresult_price">
+															<div class="medsforless_ajaxresult_price_price">
+																<p>From</p>
+																<p>' . $the_currency_symbol . $the_price . '</p>
+															</div>
+															<div class="medsforless_ajaxresult_price_button"><span>View More</span></div>
 														</div>
-														<div class="medsforless_ajaxresult_price_button"><span>View More</span></div>
 													</div>
 												</a>
 										  </div>';
@@ -238,6 +240,7 @@
 				// echo json_encode($filtered_term_slugs);
 				echo '<div class="medsforless_ajaxresults_side_cat"><h3>Categories</h3>' . $ajax_categories_output . '</div>';
 				echo '<div class="medsforless_ajaxresults_side_res"><h3>Resources</h3>' . $ajax_resources_output . '</div>';
+				echo '<a href="https://www.medsforless.co.uk/shop/" class="medsforless_ajaxresults_side_viewall">View All Products<img src="https://www.medsforless.co.uk/wp-content/uploads/2023/04/ajaxallicon-01.png"></a>';
 			?>
 	</div>
 
