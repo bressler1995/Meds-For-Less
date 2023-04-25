@@ -1103,6 +1103,20 @@ function medsforless_customsearch_function() {
     return $result;
 }
 
+add_shortcode( 'rlv_didyoumean', function() {
+    $didyoumean = '';
+    if ( function_exists( 'relevanssi_didyoumean' ) ) {
+      $didyoumean = relevanssi_didyoumean(
+        get_search_query( false ),
+        '<p>Did you mean: ',
+        '</p>',
+        5,
+        false
+      );
+    }
+    return $didyoumean;
+} );
+
 add_filter( 'woocommerce_thankyou_order_received_text', 'd4tw_custom_ty_msg' );
 
     function d4tw_custom_ty_msg ( $thank_you_msg ) {

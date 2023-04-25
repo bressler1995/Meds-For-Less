@@ -218,22 +218,24 @@
 					}
 				}
 
-				$blog_args = array(
-					'post_type' => 'post',
-					'orderby' => 'date',
-    				'order'   => 'DESC',
-					'posts_per_page' => 3
-				);
-   				$blog_posts = new WP_Query($blog_args);
-
-				if($blog_posts->have_posts()) {
-					$ajax_resources_output = '';
-					while($blog_posts->have_posts()) {
-						$blog_posts->the_post();
-						$blog_title = get_the_title();
-						$blog_link = get_permalink();
-
-						$ajax_resources_output .= '<a href="' . $blog_link . '">' . $blog_title . '</a>';
+				if($has_posts == true) {
+					$blog_args = array(
+						'post_type' => 'post',
+						'orderby' => 'date',
+						'order'   => 'DESC',
+						'posts_per_page' => 3
+					);
+					   $blog_posts = new WP_Query($blog_args);
+	
+					if($blog_posts->have_posts()) {
+						$ajax_resources_output = '';
+						while($blog_posts->have_posts()) {
+							$blog_posts->the_post();
+							$blog_title = get_the_title();
+							$blog_link = get_permalink();
+	
+							$ajax_resources_output .= '<a href="' . $blog_link . '">' . $blog_title . '</a>';
+						}
 					}
 				}
 
