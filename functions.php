@@ -1144,6 +1144,7 @@ function medsforless_registeruser_func($user_id) {
 
 add_filter( 'relevanssi_live_search_posts_per_page', function() { return 99999; } );
 add_filter( 'relevanssi_block_one_letter_searches', '__return_false' );
+add_filter( 'relevanssi_live_search_mode', function() { return 'wp_query'; } );
 
 add_filter( 'relevanssi_live_search_configs', function( $config ) {
     $config['default']['input']['min_chars'] = 1;
